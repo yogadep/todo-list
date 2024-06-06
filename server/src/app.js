@@ -1,6 +1,7 @@
 import express from "express";
 import { activityRouter } from "./routes/activityRouter.js";
 import { connect } from "./library/db.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -8,7 +9,9 @@ const PORT = process.env.PORT;
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
-app.use('/activities', activityRouter)
+app.use('/activities', activityRouter);
+
+app.use(errorHandler);
 
 const startServer = async () => {
     try {
