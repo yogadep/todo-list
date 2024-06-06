@@ -9,7 +9,6 @@ export const getActivities = async (req, res) => {
     }
 }
 
-// getActivity
 
 export const getActivity = async (req, res) => {
     try {
